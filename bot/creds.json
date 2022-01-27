@@ -1,10 +1,10 @@
 {
-    "key": "mijnjU2sBPSPYFB2rstjG3WUDRorAX3Kbq+jLKQPXePoio2Qhv9iPxD1",
-    "secret": "J/SybMmgSc0NfLCxm76/BDXm4in5Te1JZ7NOefragS8GWa7UzQf+Opj1OjxUc1ZIgX/bfjhIkoXGyUGkSvEpDg==",
+    "key": "kraken-key",
+    "secret": "kraken-secret",
 
-    "cb_access_key": "e98451de059432fac81fd7c5c5ea7794",
-    "cb_access_passphrase": "2ulzgvafvms",
-    "cb_access_secret": "lw8Mcub72IEwBm4IMRjviMAnSloeVz6nEQnevqxAqqnoRlQXchWJwZHytFEqrBp3DMTMz0nSlSXwCdOv86XQng==",
+    "cb_access_key": "cb-key",
+    "cb_access_passphrase": "cb-pass",
+    "cb_access_secret": "cb-secret",
     "cb_url": "https://api.exchange.coinbase.com",
 
     "propFundsDivided": 0.0625,
