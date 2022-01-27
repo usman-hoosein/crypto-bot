@@ -1,0 +1,101 @@
+<%- include('./includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('./includes/navigation.ejs') %>
+            <main>
+                <div class="search-container-home">
+                    <form action="/filter" method="GET">
+                        <input type="text" placeholder="Filter.." name="filter">
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+
+                <div class="btn__form">
+                    <a href="/" class="btn">Reload</a>
+                </div>
+
+                <table class="table mt-5 text-center" id="emp-list"
+                    style="border-collapse: separate;border-spacing: 1pc;">
+                    <thead>
+                        <tr>
+                            <th>Current Amount Invested ($)</th>
+                            <th>Net Gain/Loss (%)</th>
+                            <th>Cost/Token ($/tok)</th>
+                            <th>Total Current Return ($)</th>
+                            <th>Total Amount Invested (Sold)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <%= accInfo.amountInvested.toFixed(2) %>
+                            </td>
+                            <td>
+                                <%= accInfo.netGainLoss.toFixed(3) %>
+                            </td>
+                            <td>
+                                <%= accInfo.costPerToken.toFixed(2) %>
+                            </td>
+                            <td>
+                                <%= accInfo.totalReturn.toFixed(2) %>
+                            </td>
+                            <td>
+                                <%= accInfo.soldAmountInvested.toFixed(2) %>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table mt-5 text-center" id="emp-list"
+                    style="border-collapse: separate;border-spacing: 1pc;">
+                    <thead>
+                        <tr>
+                            <th>Token</th>
+                            <th>Current Price ($)</th>
+                            <th>Purchased Price ($)</th>
+                            <th>Current Gain/Loss (%)</th>
+                            <th>Size</th>
+                            <th>Amount Invested ($)</th>
+                            <th>Purchased High ($)</th>
+                            <th>Decay (%)</th>
+                            <th>Buy Percent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let token in tokens) { %>
+                            <tr>
+                                <td>
+                                    <%= token%>
+                                </td>
+                                <td>
+                                    <%= tokens[token].curr%>
+                                </td>
+                                <td>
+                                    <%= tokens[token].purchasedPrice%>
+                                </td>
+                                <td>
+                                    <%= tokens[token].currGL%>
+                                </td>
+                                <td>
+                                    <%= parseFloat(tokens[token].quantity).toFixed(tokens[token].sizeDecis) %>
+                                </td>
+                                <td>
+                                    <%= tokens[token].amountInvested.toFixed(2)%>
+                                </td>
+                                <td>
+                                    <%= tokens[token].purchasedHigh%>
+                                </td>
+                                <td>
+                                    <%= tokens[token].decayRate%>
+                                </td>
+                                <td>
+                                    <%= tokens[token].buyPercent.toFixed(2)%>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </main>
+            <%- include('./includes/end.ejs') %>

@@ -1,0 +1,17 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <main>
+                <h1>
+                    <%= tokenId %>
+                </h1>
+                <% for (let i = 0; i < token.length; i++) {%>
+                <h3>
+                    <%= token[i] %>
+                </h3>
+                <% } %>
+            </main>
+        <%- include('../includes/end.ejs') %>
