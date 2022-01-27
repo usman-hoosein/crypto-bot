@@ -277,19 +277,19 @@ let getPreviousFills = async () => {
     }
     fs.writeFile(path.join(__dirname, '../', 'data', 'accInfo.json'), JSON.stringify(accInfo), (e) => { })
 
-    // accInfo.numOfTokens += 1
-    // tokenInfo.purchasedHighSellTf = tokenInfo.purchasedHigh
-    // tokenInfo.purchasedHighSellTfTimestamp = algos.cbTimestamp(res.created_at)
-    // if ((algos.cbTimestamp() - tokenInfo.purchasedHighTimestamp) / 60 <= creds.wstTimeframe
-    //     || (algos.cbTimestamp() - tokenInfo.purchasedHighSellTfTimestamp) / 60 <= creds.wstTimeframe) {
-    //     tokenInfo.isSellable = true
-    // }
-    // else {
-    //     tokenInfo.isSellable = false
-    // }
-    // tokenInfo.wstHigh = tokenInfo.purchasedPrice
-    // tokenInfo.wstTimestamp = algos.cbTimestamp(res.created_at)
-    // accInfo.funds -= tokenInfo.amountInvested
+    accInfo.numOfTokens += 1
+    tokenInfo.purchasedHighSellTf = tokenInfo.purchasedHigh
+    tokenInfo.purchasedHighSellTfTimestamp = algos.cbTimestamp(res.created_at)
+    if ((algos.cbTimestamp() - tokenInfo.purchasedHighTimestamp) / 60 <= creds.wstTimeframe
+        || (algos.cbTimestamp() - tokenInfo.purchasedHighSellTfTimestamp) / 60 <= creds.wstTimeframe) {
+        tokenInfo.isSellable = true
+    }
+    else {
+        tokenInfo.isSellable = false
+    }
+    tokenInfo.wstHigh = tokenInfo.purchasedPrice
+    tokenInfo.wstTimestamp = algos.cbTimestamp(res.created_at)
+    accInfo.funds -= tokenInfo.amountInvested
 }
 
 let begin = async () => {
