@@ -44,13 +44,12 @@
     "fastRunnerWindowTime": 1440,
     "fastRunnerPercent": 5.5,
     "fastRunnerCancelPercent": -0.5,
+    "fastRunnerRefreshRate": 150,
 
     "skipTokens": ["AGLD-USD", "DDX-USD", "SUPER-USD", "CLV-USD", "GODS-USD", "PERP-USD", "RBN-USD", "AUCTION-USD", "ATOM-USD", "WCFG-USD"],
-    "manipulateRate": 0.5,
+
     "isLimitOnly": true,
     "marketSells": false,
-
-    "fastRunnerRefreshRate": 150,
 
     "wstRangePercent": -0.5,
     "wstTimeframe": 10,
