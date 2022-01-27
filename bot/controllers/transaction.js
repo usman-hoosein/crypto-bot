@@ -269,13 +269,13 @@ const sell = async (tokenId, tokenInfo, accInfo, i) => {
         }
 
         if (!tokenInfo.isLimitOnly && tokenInfo.canMarket && (((tokenInfo.decayRate * 100) <= creds.sellPercent)
-            // || ((tokenInfo.decayRateSelltf * 100) <= creds.sellPercent)
+            || ((tokenInfo.decayRateSelltf * 100) <= creds.sellPercent)
         )) {
             await makeSell(tokenId, tokenInfo, 'market', accInfo, i)
         }
 
         if (tokenInfo.isLimitOnly && ((tokenInfo.decayRate * 100) <= creds.createSellStopPercent)
-            // || (tokenInfo.decayRateSellTf * 100) <= creds.createSellStopPercent
+            || (tokenInfo.decayRateSellTf * 100) <= creds.createSellStopPercent
         ) {
             await makeSell(tokenId, tokenInfo, 'limit', accInfo, i)
         }
