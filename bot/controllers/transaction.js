@@ -33,14 +33,14 @@ const afterTransaction = (tokenId, tokenInfo, res, transactionType, orderType, a
         accInfo.amountInvested += tokenInfo.amountInvested
         accInfo.soldAmountInvested += tokenInfo.amountInvested
 
-        // tokenInfo.purchasedHighSellTf = tokenInfo.curr
-        // tokenInfo.purchasedHighSellTfTimestamp = algos.cbTimestamp()
-        // tokenInfo.endTimestampSellTf = tokenInfo.purchasedTimestamp
-        // tokenInfo.startTimestampSellTf = tokenInfo.purchasedTimestamp
-        // tokenInfo.wstHigh = tokenInfo.purchasedPrice
-        // tokenInfo.wstTimestamp = algos.cbTimestamp()
-        // accInfo.funds = accInfo.funds - (accInfo.initialFunds * propFundsDivided)
-        // accInfo.numOfTokens += 1
+        tokenInfo.purchasedHighSellTf = tokenInfo.curr
+        tokenInfo.purchasedHighSellTfTimestamp = algos.cbTimestamp()
+        tokenInfo.endTimestampSellTf = tokenInfo.purchasedTimestamp
+        tokenInfo.startTimestampSellTf = tokenInfo.purchasedTimestamp
+        tokenInfo.wstHigh = tokenInfo.purchasedPrice
+        tokenInfo.wstTimestamp = algos.cbTimestamp()
+        accInfo.funds = accInfo.funds - (accInfo.initialFunds * propFundsDivided)
+        accInfo.numOfTokens += 1
 
         if (orderType == 'market') {
             client.getOrder(tokenInfo.orderId)
@@ -112,13 +112,13 @@ const afterTransaction = (tokenId, tokenInfo, res, transactionType, orderType, a
             tokenInfo.quantified = false
             tokenInfo.isPrevPurchase = false
 
-            // tokenInfo.isSellable = true
-            // tokenInfo.goneAboveConfirmPerc = false
-            // accInfo.funds += res.size * tokenInfo.curr
-            // accInfo.tokensSold += 1
-            // accInfo.numOfTokens -= 1
-            // tokenInfo.endTimestampSellTf = 0
-            // tokenInfo.startTimestampSellTf = 0
+            tokenInfo.isSellable = true
+            tokenInfo.goneAboveConfirmPerc = false
+            accInfo.funds += res.size * tokenInfo.curr
+            accInfo.tokensSold += 1
+            accInfo.numOfTokens -= 1
+            tokenInfo.endTimestampSellTf = 0
+            tokenInfo.startTimestampSellTf = 0
 
             fs.writeFile(path.join(__dirname, '../../data', 'accInfo.json'), JSON.stringify(accInfo),
                 (err) => { })
@@ -240,33 +240,33 @@ const purchase = async (tokenId, tokenInfo, accInfo) => {
 
 const sell = async (tokenId, tokenInfo, accInfo, i) => {
     if (tokenInfo.purchased && !tokenInfo.isBeingSold) {
-        // if ((algos.cbTimestamp() - tokenInfo.wstTimestamp) / 60 > tokenInfo.wstTimeframe && tokenInfo.isSellable
-        //     && !tokenInfo.goneAboveConfirmPerc) {
-        //     if (!tokenInfo.isPurchaseable) {
-        //         if (tokenInfo.canMarket) {
-        //             await makeSell(tokenId, tokenInfo, 'market', accInfo, i)
-        //         }
-        //         else {
-        //             await makeSell(tokenId, tokenInfo, 'limit', accInfo, i, tokenInfo.curr,
-        //                 tokenInfo.curr * (((creds.sellMaxPercent - creds.sellPercent) / 100) + 1))
-        //         }
-        //     }
-        //     else {
-        //         let targetPrice = (tokenInfo.low * ((tokenInfo.buyPercent / 100) + 1)).toFixed(tokenInfo.numOfDecis)
-        //         let targetLim = (tokenInfo.low * ((tokenInfo.buyMaxPercent / 100) + 1)).toFixed(tokenInfo.numOfDecis)
-        //         let lowestAsk = tokenInfo.curr + tokenInfo.spread
+        if ((algos.cbTimestamp() - tokenInfo.wstTimestamp) / 60 > tokenInfo.wstTimeframe && tokenInfo.isSellable
+            && !tokenInfo.goneAboveConfirmPerc) {
+            if (!tokenInfo.isPurchaseable) {
+                if (tokenInfo.canMarket) {
+                    await makeSell(tokenId, tokenInfo, 'market', accInfo, i)
+                }
+                else {
+                    await makeSell(tokenId, tokenInfo, 'limit', accInfo, i, tokenInfo.curr,
+                        tokenInfo.curr * (((creds.sellMaxPercent - creds.sellPercent) / 100) + 1))
+                }
+            }
+            else {
+                let targetPrice = (tokenInfo.low * ((tokenInfo.buyPercent / 100) + 1)).toFixed(tokenInfo.numOfDecis)
+                let targetLim = (tokenInfo.low * ((tokenInfo.buyMaxPercent / 100) + 1)).toFixed(tokenInfo.numOfDecis)
+                let lowestAsk = tokenInfo.curr + tokenInfo.spread
 
-        //         if (lowestAsk > targetLim || lowestAsk < targetPrice) {
-        //             if (tokenInfo.canMarket) {
-        //                 await makeSell(tokenId, tokenInfo, 'market', accInfo, i)
-        //             }
-        //             else {
-        //                 await makeSell(tokenId, tokenInfo, 'limit', accInfo, i, tokenInfo.curr,
-        //                     tokenInfo.curr * (((creds.sellMaxPercent - creds.sellPercent) / 100) + 1))
-        //             }
-        //         }
-        //     }
-        // }
+                if (lowestAsk > targetLim || lowestAsk < targetPrice) {
+                    if (tokenInfo.canMarket) {
+                        await makeSell(tokenId, tokenInfo, 'market', accInfo, i)
+                    }
+                    else {
+                        await makeSell(tokenId, tokenInfo, 'limit', accInfo, i, tokenInfo.curr,
+                            tokenInfo.curr * (((creds.sellMaxPercent - creds.sellPercent) / 100) + 1))
+                    }
+                }
+            }
+        }
 
         if (!tokenInfo.isLimitOnly && tokenInfo.canMarket && (((tokenInfo.decayRate * 100) <= creds.sellPercent)
             // || ((tokenInfo.decayRateSelltf * 100) <= creds.sellPercent)
