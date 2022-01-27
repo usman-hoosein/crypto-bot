@@ -1,0 +1,59 @@
+{
+    "key": "mijnjU2sBPSPYFB2rstjG3WUDRorAX3Kbq+jLKQPXePoio2Qhv9iPxD1",
+    "secret": "J/SybMmgSc0NfLCxm76/BDXm4in5Te1JZ7NOefragS8GWa7UzQf+Opj1OjxUc1ZIgX/bfjhIkoXGyUGkSvEpDg==",
+
+    "cb_access_key": "e98451de059432fac81fd7c5c5ea7794",
+    "cb_access_passphrase": "2ulzgvafvms",
+    "cb_access_secret": "lw8Mcub72IEwBm4IMRjviMAnSloeVz6nEQnevqxAqqnoRlQXchWJwZHytFEqrBp3DMTMz0nSlSXwCdOv86XQng==",
+    "cb_url": "https://api.exchange.coinbase.com",
+
+    "propFundsDivided": 0.0625,
+    "funds": 20,
+    "tokenLimit": 16,
+    "costPerToken": 1.8,
+
+    "granularity": 60,
+
+    "buyTimeframe": 299,
+    "sellTimeframe": 299,
+
+    "createBuyStopPercent": 6,
+    "buyPercent": 6,
+    "buyMaxPercent": 6.6,
+    "incrementBuyPercent": 100,
+
+    "createSellStopPercent": -0.5,
+    "sellPercent": -0.5,
+    "sellMaxPercent": -1.1,
+
+    "buyWindowTime": 0,
+    "buyWindowPercent": 100,
+
+    "year": 2022,
+    "month": 1,
+    "day": 8,
+    "hour": 18,
+    "minute": 0,
+
+    "prevOrdersYear": 2022,
+    "prevOrdersMonth": 1,
+    "prevOrdersDay": 8,
+    "prevOrdersHour": 23,
+    "prevOrdersMinute": 35,
+
+    "fastRunnerWindowTime": 1440,
+    "fastRunnerPercent": 5.5,
+    "fastRunnerCancelPercent": -0.5,
+
+    "skipTokens": ["AGLD-USD", "DDX-USD", "SUPER-USD", "CLV-USD", "GODS-USD", "PERP-USD", "RBN-USD", "AUCTION-USD", "ATOM-USD", "WCFG-USD"],
+    "manipulateRate": 0.5,
+    "isLimitOnly": true,
+    "marketSells": false,
+
+    "fastRunnerRefreshRate": 150,
+
+    "wstRangePercent": -0.5,
+    "wstTimeframe": 10,
+    "recoverPercent": -1.5,
+    "confirmPercent": 1.5
+}

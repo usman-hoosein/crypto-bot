@@ -1,0 +1,45 @@
+{
+    "key": "mijnjU2sBPSPYFB2rstjG3WUDRorAX3Kbq+jLKQPXePoio2Qhv9iPxD1",
+    "secret": "J/SybMmgSc0NfLCxm76/BDXm4in5Te1JZ7NOefragS8GWa7UzQf+Opj1OjxUc1ZIgX/bfjhIkoXGyUGkSvEpDg==",
+
+    "cb_access_key": "e98451de059432fac81fd7c5c5ea7794",
+    "cb_access_passphrase": "2ulzgvafvms",
+    "cb_access_secret": "lw8Mcub72IEwBm4IMRjviMAnSloeVz6nEQnevqxAqqnoRlQXchWJwZHytFEqrBp3DMTMz0nSlSXwCdOv86XQng==",
+    "cb_url": "https://api.exchange.coinbase.com",
+
+    "propFundsDivided": 0.33,
+    "funds": 4,
+
+    "granularity": 900,
+
+    "buyTimeframe": 1440,
+    "sellTimeframe": 1440,
+
+    "createBuyStopPercent": 0.1,
+    "buyPercent": 0.1,
+    "buyMaxPercent": 6.4,
+
+    "createSellStopPercent": -0.1,
+    "sellPercent": -0.1,
+    "sellMaxPercent": -3,
+
+    "buyWindowTime": 0,
+    "buyWindowPercent": 100,
+
+    "year": 2021,
+    "month": 12,
+    "day": 24,
+    "hour": 18,
+    "minutes": 0,
+
+    "fastRunnerWindowTime": 1440,
+    "fastRunnerPercent": 5.4,
+    "fastRunnerCancelPercent": -0.5,
+
+    "skipTokens": ["AGLD-USD", "DDX-USD", "SUPER-USD", "CLV-USD", "GODS-USD", "PERP-USD", "RBN-USD"],
+    "requestLimit": 4,
+    "manipulateRate": 0.5,
+    "isLimitOnly": true,
+
+    "fastRunnerRefreshRate": 200
+}
