@@ -46,7 +46,7 @@
     "fastRunnerCancelPercent": -0.5,
     "fastRunnerRefreshRate": 150,
 
-    "skipTokens": ["AGLD-USD", "DDX-USD", "SUPER-USD", "CLV-USD", "GODS-USD", "PERP-USD", "RBN-USD", "AUCTION-USD", "ATOM-USD", "WCFG-USD"],
+    "skipTokens": [],
 
     "isLimitOnly": true,
     "marketSells": false,
