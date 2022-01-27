@@ -1,0 +1,29 @@
+{
+  "name": "crypto-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "node ./web/app.js",
+    "start": "node ./bin/www"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ajv": "^8.8.2",
+    "api": "^4.1.1",
+    "axios": "^0.24.0",
+    "body-parser": "^1.19.1",
+    "coinbase-pro": "^0.9.0",
+    "crypto": "^1.0.1",
+    "crypto-js": "^4.1.1",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "forever": "^4.0.1",
+    "fs": "^0.0.1-security",
+    "got": "^11.8.3",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
