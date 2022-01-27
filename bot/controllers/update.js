@@ -59,10 +59,10 @@ exports.involvingCandles = (res, tokenInfo) => {
     this.candles(res, tokenInfo)
     this.windows(res, tokenInfo)
 
-    // if (tokenInfo.purchased) {
-    //     this.purchasedHighs(res, tokenInfo)
-    //     this.wst(res, tokenInfo)
-    // }
+    if (tokenInfo.purchased) {
+        this.purchasedHighs(res, tokenInfo)
+        this.wst(res, tokenInfo)
+    }
     if (tokenInfo.needsRelativeMin) {
         this.relativeMin(res, tokenInfo)
     }
@@ -245,14 +245,14 @@ exports.initializeToken = (tokenInfo) => {
         relativeMinTS: 0,
 
         // //Window Sell Triggers
-        // wstHigh: 0,
-        // wstTimestamp: 0,
-        // wstRangeRate: (creds.wstRangePercent / 100) + 1,
-        // wstTimeframe: creds.wstTimeframe //In Minutes
-        // purchasedHighSellTf: 0, //Highest price for past {*sell-timeframe} mins since moment of purchase
-        // purchasedHighSellTfTimestamp: 0,
-        // startTimestampSellTf: 0,
-        // endTimestampSellTf: 0,
+        wstHigh: 0,
+        wstTimestamp: 0,
+        wstRangeRate: (creds.wstRangePercent / 100) + 1,
+        wstTimeframe: creds.wstTimeframe //In Minutes
+        purchasedHighSellTf: 0, //Highest price for past {*sell-timeframe} mins since moment of purchase
+        purchasedHighSellTfTimestamp: 0,
+        startTimestampSellTf: 0,
+        endTimestampSellTf: 0,
     }
 
     Object.assign(tokenInfo, minMax)
@@ -315,10 +315,10 @@ exports.current = async (tokenId, tokenInfo) => {
             tokenInfo.purchasedHigh = parseFloat(tokenInfo.curr)
             tokenInfo.purchasedHighTimestamp = algos.cbTimestamp()
         }
-        // if (tokenInfo.purchased && tokenInfo.curr > tokenInfo.purchasedHighSellTf) {
-        //     tokenInfo.purchasedHighSellTf = parseFloat(tokenInfo.curr)
-        //     tokenInfo.purchasedHighSellTfTimestamp = algos.cbTimestamp()
-        // }
+        if (tokenInfo.purchased && tokenInfo.curr > tokenInfo.purchasedHighSellTf) {
+            tokenInfo.purchasedHighSellTf = parseFloat(tokenInfo.curr)
+            tokenInfo.purchasedHighSellTfTimestamp = algos.cbTimestamp()
+        }
         if (parseFloat(res.bids[0][0]) < tokenInfo.low) {
             tokenInfo.low = parseFloat(res.bids[0][0])
         }
