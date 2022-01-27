@@ -9,3 +9,5 @@ Crypto bot that continuously monitors and trades cryptocurrency based on the spe
  
 2. Enter the credentials to coinbase or kraken keys where specified at bot/creds.json file
 3. Specify any additional parameters at bot/creds.json file
+4. To begin the bot, run:
+  node ./bin/www 
